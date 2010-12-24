@@ -32,6 +32,7 @@ FIND_LIBRARY(XINE_LIBRARY NAMES xine
  PATHS ${PKG_XINE_LIBRARY_DIRS} )
 
 if (XINE_INCLUDE_DIR AND XINE_LIBRARY)
+   include(MacroEnsureVersion)
    macro_ensure_version(1.1.9 ${PKG_XINE_VERSION} XINE_VERSION_OK)
    if (XINE_VERSION_OK)
       set(XINE_FOUND TRUE)
@@ -53,5 +54,8 @@ if (XINE_FOUND)
       message(STATUS "Found XINE: ${XINE_LIBRARY}")
    endif (NOT Xine_FIND_QUIETLY)
 endif (XINE_FOUND)
+
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(Xine  "Could NOT find XINE 1.1.9 or greater"  XINE_INCLUDE_DIR XINE_LIBRARY XINE_VERSION_OK)
 
 MARK_AS_ADVANCED(XINE_INCLUDE_DIR XINE_LIBRARY)
