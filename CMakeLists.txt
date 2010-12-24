@@ -30,6 +30,9 @@ if (NOT QT_QTDBUS_FOUND)
 endif(NOT QT_QTDBUS_FOUND)
 
 find_package(Automoc4 REQUIRED)
+find_package(Xine REQUIRED)
+macro_optional_find_package(XCB)
+
 include (CheckCXXCompilerFlag)
 include (MacroEnsureVersion)
 
@@ -167,7 +170,7 @@ if(MSVC)
 endif(MSVC)
 
 # for including config.h and for includes like <kparts/foo.h>
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/includes ${CMAKE_CURRENT_SOURCE_DIR}/phonon ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/phonon)
+include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/includes ${CMAKE_CURRENT_BINARY_DIR})
 
 macro(_SET_FANCY _var _value _comment)
    if (KDESupport_SOURCE_DIR)
@@ -263,8 +266,6 @@ if(APPLE)
    set(CMAKE_INSTALL_NAME_DIR ${LIB_INSTALL_DIR})
 endif(APPLE)
 
-if (Q_WS_X11)
-   add_subdirectory(xine)
-endif (Q_WS_X11)
+add_subdirectory(xine)
 
 macro_display_feature_log()
