@@ -153,6 +153,47 @@ if (CMAKE_COMPILER_IS_GNUCXX)
 
 endif (CMAKE_COMPILER_IS_GNUCXX)
 
+# set the KDE-specific CMake module paths to find FindPhonon.cmake
+
+FIND_PROGRAM(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
+   # the suffix must be used since KDEDIRS can be a list of directories
+   # which don't have bin/ appended
+   PATH_SUFFIXES bin
+   HINTS
+   ${CMAKE_INSTALL_PREFIX}
+   ${_KDEDIRS}
+   ONLY_CMAKE_FIND_ROOT_PATH
+   )
+
+IF (NOT KDE4_KDECONFIG_EXECUTABLE)
+   IF (KDE4_FIND_REQUIRED)
+      MESSAGE(FATAL_ERROR "ERROR: Could not find KDE4 kde4-config")
+   ENDIF (KDE4_FIND_REQUIRED)
+ENDIF (NOT KDE4_KDECONFIG_EXECUTABLE)
+
+execute_process(COMMAND "${KDE4_KDECONFIG_EXECUTABLE}" --path data OUTPUT_VARIABLE _data_DIR ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
+   file(TO_CMAKE_PATH "${_data_DIR}" _data_DIR)
+   foreach(dir ${_data_DIR})
+      set (apath "${dir}/cmake/modules")
+      if (EXISTS "${apath}")
+         set (included 0)
+         string(TOLOWER "${apath}" _apath)
+         # ignore already added pathes, case insensitive
+         foreach(adir ${CMAKE_MODULE_PATH})
+            string(TOLOWER "${adir}" _adir)
+            if ("${_adir}" STREQUAL "${_apath}")
+               set (included 1)
+            endif ("${_adir}" STREQUAL "${_apath}")
+         endforeach(adir)
+         if (NOT included)
+            message(STATUS "Adding ${apath} to CMAKE_MODULE_PATH")
+            set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${apath}")
+         endif (NOT included)
+      endif (EXISTS "${apath}")
+   endforeach(dir)
+
+find_package(Phonon REQUIRED)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE ON)
 set(CMAKE_COLOR_MAKEFILE ON)
