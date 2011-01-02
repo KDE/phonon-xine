@@ -93,6 +93,7 @@ endif(XCB_FOUND)
 include_directories(${XINE_INCLUDE_DIR})
 
 configure_file(config-xine-widget.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-xine-widget.h )
+configure_file(xine.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/xine.desktop)
 
 add_definitions(-DPHONON_BACKEND_VERSION_4_4)
 automoc4_add_library(phonon_xine MODULE ${phonon_xine_SRCS})
@@ -103,5 +104,6 @@ if(XCB_FOUND AND XINE_XCB_FOUND)
 endif(XCB_FOUND AND XINE_XCB_FOUND)
 
 install(TARGETS phonon_xine DESTINATION ${PLUGIN_INSTALL_DIR}/plugins/phonon_backend)
-install(FILES xine.desktop DESTINATION ${SERVICES_INSTALL_DIR}/phononbackends)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/xine.desktop DESTINATION ${SERVICES_INSTALL_DIR}/phononbackends)
+
 phonon_install_icons(${ICON_INSTALL_DIR})
