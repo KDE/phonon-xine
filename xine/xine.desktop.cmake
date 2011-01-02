@@ -7,7 +7,7 @@ X-KDE-PhononBackendInfo-InterfaceVersion=1
 X-KDE-PhononBackendInfo-Version=@PHONON_XINE_VERSION@
 X-KDE-PhononBackendInfo-Website=http://www.xinehq.de/
 Icon=phonon-xine
-InitialPreference=15
+InitialPreference=5
 
 Name=Xine
 Name[bg]=Xine
