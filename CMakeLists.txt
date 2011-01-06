@@ -12,7 +12,7 @@ find_package(Xine REQUIRED)
 macro_optional_find_package(XCB)
 
 add_definitions(${QT_DEFINITIONS})
-include_directories(${QT_INCLUDES} ${PHONON_INCLUDES})
+include_directories(${PHONON_INCLUDES} ${QT_INCLUDES})
 
 set(PHONON_XINE_MAJOR_VERSION "4")
 set(PHONON_XINE_MINOR_VERSION "4")
