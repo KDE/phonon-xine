@@ -56,6 +56,7 @@ Name[sr@latin]=Xine
 Name[sv]=Xine
 Name[th]=Xine
 Name[tr]=Xine
+Name[ug]=Xine
 Name[uk]=Xine
 Name[x-test]=xxXinexx
 Name[zh_CN]=Xine
