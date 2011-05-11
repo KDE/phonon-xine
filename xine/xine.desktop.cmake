@@ -64,6 +64,7 @@ Name[zh_TW]=Xine
 
 Comment=Phonon Xine backend
 Comment[bg]=Phonon през Xine
+Comment[bs]=Xine kao pozadina za Phonon
 Comment[ca]=Dorsal del Xine pel Phonon
 Comment[ca@valencia]=Dorsal del Xine pel Phonon
 Comment[cs]=Phonon Xine backend
