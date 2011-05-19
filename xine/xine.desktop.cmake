@@ -11,6 +11,7 @@ InitialPreference=5
 
 Name=Xine
 Name[bg]=Xine
+Name[bs]=Xine
 Name[ca]=Xine
 Name[ca@valencia]=Xine
 Name[cs]=Xine
