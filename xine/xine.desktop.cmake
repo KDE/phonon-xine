@@ -113,6 +113,7 @@ Comment[sr@latin]=Xine kao pozadina Phonona
 Comment[sv]=Phonon Xine-gränssnitt
 Comment[th]=โปรแกรมเบื้องหลัง Xine ของ Phonon
 Comment[tr]=Phonon Xine arka ucu
+Comment[ug]=Phonon Xine نىڭ ئارقائۇچى
 Comment[uk]=Модуль використання Xine у Phonon
 Comment[x-test]=xxPhonon Xine backendxx
 Comment[zh_CN]=Phonon Xine 后端
