@@ -42,7 +42,7 @@ if(XINE_MINOR_VERSION LESS 2 AND XINE_BUGFIX_VERSION LESS 90)
         endif(XINE_BUGFIX_VERSION LESS 9)
     endif(XINE_BUGFIX_VERSION LESS 7)
 else(XINE_MINOR_VERSION LESS 2 AND XINE_BUGFIX_VERSION LESS 90)
-    message(FATAL_ERROR "xine-lib v${XINE_VERSION} was found on your system. This version contains major changes compared to 1.1.x and has not been tested properly for use with this backend. Consider downgrading to version 1.1.9." "http://sourceforge.net/project/showfiles.php?group_id=9655&package_id=9732")
+    message(WARNING "xine-lib v${XINE_VERSION} was found on your system. This version contains major changes compared to 1.1.x and has not been tested properly for use with this backend. Consider downgrading to version 1.1.9." "http://sourceforge.net/project/showfiles.php?group_id=9655&package_id=9732")
 endif(XINE_MINOR_VERSION LESS 2 AND XINE_BUGFIX_VERSION LESS 90)
 
 set(phonon_xine_SRCS

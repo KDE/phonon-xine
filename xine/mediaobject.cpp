@@ -443,7 +443,7 @@ QByteArray MediaObject::autoplayMrlsToTitles(const char *plugin, const char *def
     const int lastSize = m_titles.size();
     m_titles.clear();
     int num = 0;
-    char **mrls = xine_get_autoplay_mrls(m_stream->xine(), plugin, &num);
+    const char*const*mrls = xine_get_autoplay_mrls(m_stream->xine(), plugin, &num);
     for (int i = 0; i < num; ++i) {
         if (mrls[i]) {
             debug() << Q_FUNC_INFO << mrls[i];

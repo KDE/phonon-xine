@@ -280,8 +280,7 @@ static post_plugin_t *kequalizer_open_plugin(post_class_t *class_gen, int inputs
     Q_UNUSED(inputs);
     Q_UNUSED(video_target);
     kequalizer_plugin_t *that;
-    //deprecated: kequalizer_plugin_t *that = static_cast<kequalizer_plugin_t *>(xine_xmalloc(sizeof(kequalizer_plugin_t)));
-    xine_xmalloc_aligned(2,sizeof(kequalizer_plugin_t),(void**)(&that));
+    posix_memalign((void**)(&that), 2, sizeof(kequalizer_plugin_t));
     post_in_t           *input;
     post_out_t          *output;
     xine_post_in_t      *input_api;
